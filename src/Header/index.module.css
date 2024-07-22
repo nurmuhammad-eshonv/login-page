@@ -1,7 +1,8 @@
 .wrapper {
   width: 778px;
   height: 1271px;
-  border: solid red 1px;
+  background: white;
+  border-radius:32px;
   padding: 20px;
 }
 .container {
@@ -12,6 +13,9 @@
   justify-content: center;
   flex-direction: column;
   margin-top: 92px;
+}
+body{
+background: rgb(213, 209, 209);
 }
 .title {
   font-size: 32px;
