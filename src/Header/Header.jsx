@@ -19,10 +19,7 @@ function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedLink, setSelectedLink] = useState("");
 
-  const handleIconClick = (link) => {
-    setSelectedLink(link);
-    setIsModalOpen(true);
-  };
+ 
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -42,7 +39,8 @@ function Header() {
       telegram,
       instagram,
       feyzbuk,
-      github
+      github,
+      yuklash
     };
     setName(" "),
       setEmail(""),
@@ -67,12 +65,16 @@ function Header() {
   let [telegram1, setTelegram1] = useState(false);
   let [feyzbuk1, setFeyzbuk1] = useState(false);
   let [github1, setGithub1] = useState(false);
+  let [yuklash1, setYuklash1] = useState(false)
 
   let [dunyo, setDunyo] = useState("");
   let [instagram, setInstagram] = useState("");
   let [telegram, setTelegram] = useState("");
   let [feyzbuk, setFeyzbuk] = useState("");
   let [github, setGithub] = useState("");
+  const [yuklash, setYuklash] = useState("https://picsum.photos/200/300")
+
+  const img = yuklash
 
   function yangi(r) {
   setDunyo1(false)
@@ -80,9 +82,11 @@ function Header() {
   setTelegram1(false)
   setFeyzbuk1(false)
   setGithub1(false)
-  r.preventDefault();
+  setYuklash(false)
+    r.preventDefault();
 
   }
+
 
   return (
     <div className={styles.container}>
@@ -92,10 +96,10 @@ function Header() {
         <div className={styles.wrapperCard}>
           <img
             className={styles.cardImg}
-            src="https://picsum.photos/100/100"
-            alt=""
+            src={img}
+            alt="rasm yuklang"
           />
-          <p className={styles.yuklash}>Yuklash</p>
+          <p onClick={() => setYuklash1(true)} className={styles.yuklash}>Yuklash</p>
         </div>
         <div className={styles.form}>
           <p className={styles.formTitle}>
@@ -306,6 +310,16 @@ function Header() {
                 submit
               </span>
              <input onChange={ (e) => {setGithub(e.target.value)}} value={github} className={styles.modalLink}type="text"placeholder="Link"/>
+            </div>
+          </div>
+        )}
+        {yuklash1 && (
+          <div className={styles.modal}>
+            <div className={styles.modalContent}>
+              <span className={styles.close}  onClick={()=>setYuklash1(false)}>
+                submit
+              </span>
+             <input onChange={ (e) => setYuklash(e.target.value)} className={styles.modalLink}type="text"placeholder="Link"/>
             </div>
           </div>
         )}
